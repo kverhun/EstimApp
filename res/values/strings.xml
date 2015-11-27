@@ -8,4 +8,6 @@
     <string name="Authentication">Authentication</string>
     <string name="WaitingHeader">Waiting for work item</string>
     <string name="bla">Waiting for work item..</string>
+    <string name="FinishLayoutHeaderName">Estimation conclusions</string>
+    <string name="Escape">Escape</string>
 </resources>
