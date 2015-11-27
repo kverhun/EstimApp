@@ -15,7 +15,7 @@ When whole set of tasks estimation done, it results in the objective task estima
   6. Log out
 
 ## UI graph
-	You can find [here](https://github.com/kverhun/EstimApp/blob/master/docs/UI%20graph.pdf) UI form transition graph.
+	You can find [here](https://github.com/kverhun/EstimApp/blob/master/docs/UI_graph.pdf) UI form transition graph.
 
 ## Project contributors:
   - Kostiantyn Verhun
