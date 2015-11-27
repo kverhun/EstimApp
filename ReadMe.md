@@ -6,7 +6,7 @@ _EstimApp_ allows you make independent voting about target task complexity or ti
 Your decision is synchronized with other ones at the remote server managed by scrum master.
 When whole set of tasks estimation done, it results in the objective task estimation doc can be stored in convenient format on the server and shared between each estimation participant.
 
-There is a list of project contributors:
+Project contributors:
   - Kostiantyn Verhun
   - Serhii Sakharov
   - Oleksandra Fedchenko
