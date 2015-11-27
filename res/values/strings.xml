@@ -6,4 +6,6 @@
     <string name="Password">Password</string>
     <string name="EnterName">Enter name</string>
     <string name="Authentication">Authentication</string>
+    <string name="WaitingHeader">Waiting for work item</string>
+    <string name="bla">Waiting for work item..</string>
 </resources>
