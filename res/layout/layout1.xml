@@ -2,16 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent" android:weightSum="1">
 
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="layout1"
-            android:id="@+id/textView2"/>
+            android:text="@string/Authentication"
+            android:id="@+id/textView2" android:layout_weight="0.02" android:textSize="@dimen/LayoutHeaderTextSize"
+            android:textIsSelectable="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Switch"
             android:id="@+id/layout1SwitchButton"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextNickName"
+                android:hint="@string/EnterName"
+        />
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:id="@+id/editTextPassword"
+                android:hint="@string/Password"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+        >
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Login"
+                    android:id="@+id/buttonLogin"
+                    android:layout_weight="0.02"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cancel"
+                    android:id="@+id/buttonCancel"
+                    android:layout_weight="0.02"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
