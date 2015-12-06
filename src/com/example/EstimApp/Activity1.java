@@ -14,7 +14,7 @@ public class Activity1 extends FragmentActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new Fragment1())
+                    .add(R.id.container, new Fragment1(), "FRAGMENT_1")
                     .commit();
         }
     }
