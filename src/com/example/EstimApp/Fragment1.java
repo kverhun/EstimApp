@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
 
 /**
@@ -43,6 +44,9 @@ public class Fragment1 extends Fragment {
                 Server server = new Server();
                 if (server.checkLoginInfo(login, password))
                     onSuccessLogin();
+                else {
+                    ((TextView)rootView.findViewById(R.id.textLoginError)).setText("Incorrect login or password!");
+                }
             }
 
         });
