@@ -46,6 +46,11 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
         assertNotNull(fragment);
     }
 
+    public void testShouldGetMainContainer(){
+        View fragmentContainer = activity.findViewById(R.id.container);
+        assertNotNull(fragmentContainer);
+    }
+
     private Activity1 activity;
 
 
