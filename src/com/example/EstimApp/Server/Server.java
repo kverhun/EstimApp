@@ -5,7 +5,17 @@ package com.example.EstimApp.Server;
  */
 public class Server {
 
-    public boolean checkUsername(String username){
+    public boolean checkLoginInfo(String username, String password){
+        return checkUsername(username) && checkPassword(password);
+    }
+
+    private boolean checkUsername(String username){
         return username.equals("admin");
     }
+
+    private boolean checkPassword(String password){
+        return password.equals("admin");
+    }
+
+
 }
