@@ -9,6 +9,23 @@ public class Server {
         return checkUsername(username) && checkPassword(password);
     }
 
+    public class WorkItem {
+        public WorkItem(String title, String description){
+            this.title = title;
+            this.description = description;
+        }
+
+        public String getTitle(){ return title;}
+        public String getDescription(){return description;}
+
+        private final String title;
+        private final String description;
+    }
+
+    public WorkItem getWorkItem(){
+        return new WorkItem("Work item 1 title", "Work item 1 description");
+    }
+
     private boolean checkUsername(String username){
         return username.equals("admin");
     }
