@@ -1,10 +1,13 @@
 package com.example.EstimApp;
 
 import android.support.v4.app.Fragment;
+import android.widget.Button;
+import android.widget.EditText;
 import com.example.EstimApp.Activity1;
 import com.example.EstimApp.Fragment1;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
+import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runners.model.FrameworkField;
 
@@ -45,6 +48,19 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
     public void testShouldGetMainContainer(){
         View fragmentContainer = activity.findViewById(R.id.container);
         assertNotNull(fragmentContainer);
+    }
+
+    public void testShouldCreateLayoutElements(){
+        EditText editTextUserName = (EditText)activity.findViewById(R.id.editTextNickName);
+        EditText editTextPassword = (EditText)activity.findViewById(R.id.editTextPassword);
+
+        Button buttonLogin = (Button)activity.findViewById(R.id.buttonLogin);
+        Button buttonCancel = (Button)activity.findViewById(R.id.buttonCancel);
+
+        assertNotNull(editTextUserName);
+        assertNotNull(editTextPassword);
+        assertNotNull(buttonLogin);
+        assertNotNull(buttonCancel);
     }
 
     private Activity1 activity;
