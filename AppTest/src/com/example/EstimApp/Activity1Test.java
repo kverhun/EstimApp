@@ -33,15 +33,11 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
         activity = this.getActivity();
     }
 
-    @Test
-    public void test1(){
-        assertTrue(true);
+    public void testShouldGetActivity(){
+        assertNotNull(activity);
     }
 
-    @Test
     public void testShouldFindFragmentByTag(){
-        assertNotNull(activity);
-
         Fragment fragment = activity.getSupportFragmentManager().findFragmentByTag("FRAGMENT_1");
         assertNotNull(fragment);
     }

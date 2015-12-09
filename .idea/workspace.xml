@@ -72,10 +72,13 @@
       <file leaf-file-name="Activity1Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AppTest/src/com/example/EstimApp/Activity1Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7841845">
-              <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.44810542">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="true" />
+                <element signature="method#testShouldGetMainContainer#0;class#Activity1Test#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -601,9 +604,12 @@
     <history-entry file="Activity1Test - 2015.12.09 at 20h 30m 23s.xml">
       <configuration name="Activity1Test" configurationId="AndroidTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Activity1Test - 2015.12.09 at 20h 31m 42s.xml">
+      <configuration name="Activity1Test" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -780,10 +786,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AppTest/src/com/example/EstimApp/Activity1Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7841845">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.44810542">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="method#testShouldGetMainContainer#0;class#Activity1Test#0" expanded="false" />
           </folding>
         </state>
       </provider>
