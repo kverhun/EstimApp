@@ -4,8 +4,13 @@ import android.support.v4.app.Fragment;
 import com.example.EstimApp.Activity1;
 import com.example.EstimApp.Fragment1;
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.View;
 import org.junit.Test;
 import org.junit.runners.model.FrameworkField;
+
+import com.example.EstimApp.R;
+
+import static com.example.EstimApp.R.id.container;
 
 /**
  * This is a simple framework for a test of an Application.  See
@@ -25,7 +30,7 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
 
     @Override
     public void setUp() throws Exception {
-        activity = new Activity1();
+        activity = this.getActivity();
     }
 
     @Test
@@ -34,8 +39,9 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
     }
 
     @Test
-    public void shouldFindFragmentByTag(){
+    public void testShouldFindFragmentByTag(){
         assertNotNull(activity);
+
         Fragment fragment = activity.getSupportFragmentManager().findFragmentByTag("FRAGMENT_1");
         assertNotNull(fragment);
     }
