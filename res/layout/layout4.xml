@@ -31,7 +31,7 @@
                 android:layout_width="156dp"
                 android:layout_height="wrap_content"
                 android:text="8"
-                android:id="@+id/button11" android:layout_gravity="center_horizontal" android:layout_weight="0.42"
+                android:id="@+id/buttonEstimMade" android:layout_gravity="center_horizontal" android:layout_weight="0.42"
                 android:layout_margin="50dp" android:background="#ef27a777"/>
     </LinearLayout>
 </LinearLayout>
