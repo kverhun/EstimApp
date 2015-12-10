@@ -1,13 +1,16 @@
 package com.example.EstimApp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
 
@@ -41,15 +44,17 @@ public class Fragment1 extends Fragment {
                 EditText passwordEdit = (EditText)rootView.findViewById(R.id.editTextPassword);
                 String password = passwordEdit.getText().toString();
 
-                Server server = Server.Instance();
-                if (server.checkLoginInfo(login, password))
-                    onSuccessLogin();
-                else {
-                    ((TextView)rootView.findViewById(R.id.textLoginError)).setText("Incorrect login or password!");
-                }
+                ProgressBar progressBar = (ProgressBar)rootView.findViewById(R.id.loginProgressBar);
+                TextView errorTextView = ((TextView)rootView.findViewById(R.id.textLoginError));
+
+                LoginTask task = new LoginTask(login, password, progressBar, errorTextView);
+                task.execute();
             }
 
         });
+
+
+
 
         return rootView;
     }
@@ -57,6 +62,44 @@ public class Fragment1 extends Fragment {
     private void onSuccessLogin(){
         Intent intent = new Intent(getActivity(), Activity2.class);
         startActivity(intent);
+    }
+
+    private class LoginTask extends AsyncTask<String, Integer, Boolean>{
+
+        public LoginTask(String login, String password, ProgressBar progressBar, TextView textView) {
+            this.login = login;
+            this.password = password;
+            this.progressBar = progressBar;
+            this.textView = textView;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            textView.setText("");
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result){
+            progressBar.setVisibility(View.INVISIBLE);
+            if (result == false){
+                textView.setText("Incorrect login or password!");
+            }
+        }
+
+        @Override
+        protected Boolean doInBackground(String... params){
+            Server server = Server.Instance();
+            if (server.checkLoginInfo(login, password))
+                return true;
+            else
+                return false;
+        }
+
+        private String login;
+        private String password;
+        private ProgressBar progressBar;
+        private TextView textView;
     }
 
 }

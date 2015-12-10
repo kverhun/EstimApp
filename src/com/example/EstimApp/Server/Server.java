@@ -11,7 +11,16 @@ public class Server {
         return instance;
     }
 
-    public boolean checkLoginInfo(String username, String password){
+    public boolean checkLoginInfo(String username, String password) {
+
+        // imitation of long operation
+        try {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
+
         return checkUsername(username) && checkPassword(password);
     }
 
