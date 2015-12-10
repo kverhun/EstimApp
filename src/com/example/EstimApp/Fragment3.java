@@ -52,7 +52,7 @@ public class Fragment3 extends Fragment {
                 values.add(values.size(), estimationValues[idx]);
                 ++idx;
             }
-            if (values.size() == 4 || idx == estimationValues.length){
+            if (values.size() == itemsPerRow || idx == estimationValues.length){
                 TableRow row = createRowWithButtons(values);
                 tableLayout.addView(row);
                 values.clear();
