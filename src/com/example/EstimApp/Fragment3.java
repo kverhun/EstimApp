@@ -42,7 +42,7 @@ public class Fragment3 extends Fragment {
         TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
         TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
 
-        Server server = new Server();
+        Server server = Server.Instance();
         Server.WorkItem workItem = server.getWorkItem();
 
         titleTextView.setText(workItem.getTitle());
@@ -81,7 +81,7 @@ public class Fragment3 extends Fragment {
             button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    Server server = new Server();
+                    Server server = Server.Instance();
                     server.makeEstimation(value);
                 }
             });

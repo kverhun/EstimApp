@@ -41,7 +41,7 @@ public class Fragment1 extends Fragment {
                 EditText passwordEdit = (EditText)rootView.findViewById(R.id.editTextPassword);
                 String password = passwordEdit.getText().toString();
 
-                Server server = new Server();
+                Server server = Server.Instance();
                 if (server.checkLoginInfo(login, password))
                     onSuccessLogin();
                 else {

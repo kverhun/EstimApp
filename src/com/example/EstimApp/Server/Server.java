@@ -5,6 +5,12 @@ package com.example.EstimApp.Server;
  */
 public class Server {
 
+    public static Server Instance(){
+        if (instance == null)
+            instance = new Server();
+        return instance;
+    }
+
     public boolean checkLoginInfo(String username, String password){
         return checkUsername(username) && checkPassword(password);
     }
@@ -44,4 +50,6 @@ public class Server {
 
     private Integer lastEstimationValue;
 
+    private Server(){}
+    private static Server instance;
 }
