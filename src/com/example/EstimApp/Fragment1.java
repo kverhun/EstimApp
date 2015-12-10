@@ -45,7 +45,7 @@ public class Fragment1 extends Fragment {
                 String password = passwordEdit.getText().toString();
 
                 ProgressBar progressBar = (ProgressBar)rootView.findViewById(R.id.loginProgressBar);
-                TextView errorTextView = ((TextView)rootView.findViewById(R.id.textLoginError));
+                TextView errorTextView = (TextView)rootView.findViewById(R.id.textLoginError);
 
                 LoginTask task = new LoginTask(login, password, progressBar, errorTextView);
                 task.execute();
