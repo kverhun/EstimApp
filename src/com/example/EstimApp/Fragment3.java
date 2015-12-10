@@ -27,18 +27,6 @@ public class Fragment3 extends Fragment {
 
         View rootView = inflater.inflate(R.layout.layout3, container, false);
 
-        Button button = (Button)rootView.findViewById(R.id.layout3SwitchButton);
-        if (button != null)
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Intent intent = new Intent(getActivity(), Activity4.class);
-                    startActivity(intent);
-
-                }
-            });
-
         TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
         TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
 
@@ -83,11 +71,17 @@ public class Fragment3 extends Fragment {
                 public void onClick(View view) {
                     Server server = Server.Instance();
                     server.makeEstimation(value);
+                    onEstimMade();
                 }
             });
             row.addView(button);
         }
         return row;
+    }
+
+    private void onEstimMade(){
+        Intent intent = new Intent(getActivity(), Activity4.class);
+        startActivity(intent);
     }
 
     private final int[] estimationValues = {0, 1, 2, 3, 5, 8, 13, 21};
