@@ -26,6 +26,14 @@ public class Server {
         return new WorkItem("Work item 1 title", "Work item 1 description");
     }
 
+    public Integer getLastEstimationValue(){
+        return lastEstimationValue;
+    }
+
+    public void makeEstimation(int value){
+        lastEstimationValue = value;
+    }
+
     private boolean checkUsername(String username){
         return username.equals("admin");
     }
@@ -34,5 +42,6 @@ public class Server {
         return password.equals("admin");
     }
 
+    private Integer lastEstimationValue;
 
 }
