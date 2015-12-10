@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
 
 /**
@@ -28,6 +29,15 @@ public class Fragment4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.layout4, container, false);
+
+        TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
+        TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
+
+        Server server = Server.Instance();
+        Server.WorkItem workItem = server.getWorkItem();
+
+        titleTextView.setText(workItem.getTitle());
+        descriptionTextView.setText(workItem.getDescription());
 
         Button button = (Button)rootView.findViewById(R.id.layout4SwitchButton);
         if (button != null)

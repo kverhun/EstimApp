@@ -18,14 +18,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Work item"
-                android:id="@+id/textView3"/>
+                android:id="@+id/textWorkItemTitle"/>
         <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="158dp"
                 android:id="@+id/scrollView2">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut dolor arcu. Aliquam id condimentum justo, vel blandit lectus. Etiam eu nisi nec leo maximus euismod. Vivamus fermentum sem sit amet felis cursus volutpat. Donec ultrices quam in ipsum tempus suscipit. Maecenas consequat molestie tortor, non molestie tortor posuere aliquet. Nam vitae ante vulputate, euismod justo in, porttitor leo."
-                      android:id="@+id/textView6"/>
+                      android:id="@+id/textWorkItemDesciption"/>
         </ScrollView>
         <Button
                 android:layout_width="156dp"
