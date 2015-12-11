@@ -3,20 +3,58 @@ package com.example.EstimApp.PersonalDataStorage;
 /**
  * Created by sersajur on 11.12.2015.
  */
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 
+import java.util.ArrayList;
+
 public class PersonalDataStorage {
 
-    public static PersonalDataStorage getInstance() {
-        return ourInstance;
+    public static PersonalDataStorage getInstance(Context context) {
+        if (instance == null)
+            instance = new PersonalDataStorage(context);
+        return instance;
     }
 
-    private static PersonalDataStorage ourInstance = new PersonalDataStorage();
-
-    private PersonalDataStorage() {
+    public void StoreUserItemEstim(UserItemEstim userItemEstim){
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteOpenHelper.COLUMN_LOGIN, userItemEstim.GetLogin());
+        values.put(MySQLiteOpenHelper.COLUMN_WORK_ITEM_TITLE, userItemEstim.GetItemName());
+        values.put(MySQLiteOpenHelper.COLUMN_ESTIM, userItemEstim.GetEstim());
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+        long insertedItemId = db.insert(MySQLiteOpenHelper.TABLE_ESTIM_HISTORY, null, values);
     }
+
+    public ArrayList<UserItemEstim> GetStoredUserItemEstims(){
+        SQLiteDatabase db = dbhelper.getReadableDatabase();
+        Cursor query_result = db.rawQuery(SELECT_TABLE_ESTIM_HISTORY, null);
+        ArrayList<UserItemEstim> userItemEstimArray = new ArrayList<UserItemEstim>();
+        query_result.moveToFirst();
+        while(query_result.isAfterLast() == false){
+            UserItemEstim userItemEstim = new UserItemEstim(
+                query_result.getString(query_result.getColumnIndex(dbhelper.COLUMN_LOGIN)),
+                query_result.getString(query_result.getColumnIndex(dbhelper.COLUMN_WORK_ITEM_TITLE)),
+                query_result.getInt(query_result.getColumnIndex(dbhelper.COLUMN_ESTIM)));
+            userItemEstimArray.add(userItemEstim);
+            query_result.moveToNext();
+        }
+        return userItemEstimArray;
+    }
+
+
+    private PersonalDataStorage(Context context) {
+        dbhelper = new MySQLiteOpenHelper(context);
+    }
+
+    private static PersonalDataStorage instance;
+
+    // db related:
+    private MySQLiteOpenHelper dbhelper;
+    private static final String SELECT_TABLE_ESTIM_HISTORY = "select * "
+            + "from " + MySQLiteOpenHelper.TABLE_ESTIM_HISTORY;
 
     private class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
