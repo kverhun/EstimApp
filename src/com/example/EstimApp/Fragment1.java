@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
 
+import java.util.concurrent.Callable;
+
 /**
  * Created by Kostiantyn on 27.11.2015.
  */
@@ -47,7 +49,13 @@ public class Fragment1 extends Fragment {
                 ProgressBar progressBar = (ProgressBar)rootView.findViewById(R.id.loginProgressBar);
                 TextView errorTextView = (TextView)rootView.findViewById(R.id.textLoginError);
 
-                LoginTask task = new LoginTask(login, password, progressBar, errorTextView);
+                LoginTask task = new LoginTask(login, password, progressBar, errorTextView, new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        onSuccessLogin();
+                        return null;
+                    }
+                });
                 task.execute();
             }
 
@@ -63,11 +71,12 @@ public class Fragment1 extends Fragment {
 
     private class LoginTask extends AsyncTask<String, Integer, Boolean>{
 
-        public LoginTask(String login, String password, ProgressBar progressBar, TextView textView) {
+        public LoginTask(String login, String password, ProgressBar progressBar, TextView textView, Callable<Integer> onPostExecuteFunc) {
             this.login = login;
             this.password = password;
             this.progressBar = progressBar;
             this.textView = textView;
+            this.onPostExecuteFunc = onPostExecuteFunc;
         }
 
         @Override
@@ -79,7 +88,14 @@ public class Fragment1 extends Fragment {
         @Override
         protected void onPostExecute(Boolean result){
             progressBar.setVisibility(View.INVISIBLE);
-            if (result == false){
+            if (result == true){
+                try {
+                    onPostExecuteFunc.call();
+                } catch (Exception e){
+
+                }
+            }
+            else{
                 textView.setText("Incorrect login or password!");
             }
         }
@@ -97,6 +113,7 @@ public class Fragment1 extends Fragment {
         private String password;
         private ProgressBar progressBar;
         private TextView textView;
+        private Callable<Integer> onPostExecuteFunc;
     }
 
 }
