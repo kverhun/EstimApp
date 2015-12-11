@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.example.EstimApp.PersonalDataStorage.PersonalDataStorage;
 import com.example.EstimApp.Server.Server;
 
 import java.util.concurrent.Callable;
@@ -103,9 +104,11 @@ public class Fragment1 extends Fragment {
         @Override
         protected Boolean doInBackground(String... params){
             Server server = Server.Instance();
-            if (server.checkLoginInfo(login, password))
+            if (server.checkLoginInfo(login, password)) {
+                PersonalDataStorage estimHistory = PersonalDataStorage.getInstance(getActivity());
+                estimHistory.SetCurrentLogin(login);
                 return true;
-            else
+            }else
                 return false;
         }
 

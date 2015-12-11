@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Here you can see estimation results shared by server."
-            android:id="@+id/textView9" android:layout_weight="0.31" android:textSize="@dimen/ContentTextSize"/>
+            android:id="@+id/textViewEstimResults" android:layout_weight="0.31" android:textSize="@dimen/ContentTextSize"/>
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

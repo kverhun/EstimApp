@@ -44,7 +44,6 @@ public class PersonalDataStorage {
         return userItemEstimArray;
     }
 
-
     private PersonalDataStorage(Context context) {
         dbhelper = new MySQLiteOpenHelper(context);
     }
@@ -90,4 +89,12 @@ public class PersonalDataStorage {
                 + COLUMN_WORK_ITEM_TITLE + " text not null, "
                 + COLUMN_ESTIM + " integer not null);";
     }
+    public void SetCurrentLogin(String login){
+        current_login = login;
+    }
+    public String GetCurrentLogin(){
+        return current_login;
+    }
+
+    private String current_login;
 }

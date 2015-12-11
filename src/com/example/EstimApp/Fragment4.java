@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.example.EstimApp.PersonalDataStorage.PersonalDataStorage;
+import com.example.EstimApp.PersonalDataStorage.UserItemEstim;
 import com.example.EstimApp.Server.Server;
 
 import java.util.concurrent.Callable;
@@ -31,7 +33,6 @@ public class Fragment4 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.layout4, container, false);
 
         TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
@@ -55,6 +56,13 @@ public class Fragment4 extends Fragment {
 
         Button buttonWithEstim = (Button)rootView.findViewById(R.id.buttonEstimMade);
         buttonWithEstim.setText(Server.Instance().getLastEstimationValue().toString());
+
+        PersonalDataStorage estimHistory = PersonalDataStorage.getInstance(getActivity());
+        UserItemEstim userItemEstim = new UserItemEstim(
+                estimHistory.GetCurrentLogin(),
+                server.getWorkItem().getTitle(),
+                server.getLastEstimationValue());
+        estimHistory.StoreUserItemEstim(userItemEstim);
 
         ProgressBar progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarWaitEndSession);
         (new WaitEndSessionTask(progressBar, new Callable<Void>() {
