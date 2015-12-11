@@ -55,6 +55,13 @@ public class Server {
     }
 
     public void makeEstimation(int value){
+        // imitation of long operation
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
         lastEstimationValue = value;
     }
 
