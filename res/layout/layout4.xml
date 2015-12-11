@@ -33,5 +33,15 @@
                 android:text="8"
                 android:id="@+id/buttonEstimMade" android:layout_gravity="center_horizontal" android:layout_weight="0.42"
                 android:layout_margin="50dp" android:background="#ef27a777"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Waiting session end..."
+                android:id="@+id/textView3" android:layout_gravity="center_horizontal"/>
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBarWaitEndSession" android:layout_gravity="center_horizontal" android:indeterminate="false"/>
     </LinearLayout>
 </LinearLayout>

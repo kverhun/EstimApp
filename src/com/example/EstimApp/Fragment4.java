@@ -1,6 +1,7 @@
 package com.example.EstimApp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ServiceCompat;
@@ -17,8 +18,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
+
+import java.util.concurrent.Callable;
 
 /**
  * Created by Kostiantyn on 27.11.2015.
@@ -44,16 +48,57 @@ public class Fragment4 extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Intent intent = new Intent(getActivity(), Activity6.class);
                     startActivity(intent);
-
                 }
             });
 
         Button buttonWithEstim = (Button)rootView.findViewById(R.id.buttonEstimMade);
         buttonWithEstim.setText(Server.Instance().getLastEstimationValue().toString());
 
+        ProgressBar progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarWaitEndSession);
+        (new WaitEndSessionTask(progressBar, new Callable<Void>() {
+            @Override
+            public Void call() throws Exception {
+                Intent intent = new Intent(getActivity(), Activity2.class);
+                startActivity(intent);
+                return null;
+            }
+        })).execute();
+
         return rootView;
     }
+
+    private class WaitEndSessionTask extends AsyncTask<Void, Void, Void> {
+        public WaitEndSessionTask(ProgressBar progressBar, Callable<Void> onPostExecuteFunc){
+            this.progressBar = progressBar;
+            this.onPostExecuteFunc = onPostExecuteFunc;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            progressBar.setVisibility(View.INVISIBLE);
+            try {
+                onPostExecuteFunc.call();
+            } catch (Exception e){
+
+            }
+        }
+
+        @Override
+        protected Void doInBackground(Void... params){
+            Server.Instance().waitEndSession();
+            return null;
+        }
+
+        private ProgressBar progressBar;
+        private Callable<Void> onPostExecuteFunc;
+    }
+
+
 }

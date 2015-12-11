@@ -65,6 +65,16 @@ public class Server {
         lastEstimationValue = value;
     }
 
+    public void waitEndSession(){
+        // imitation of long operation
+        try {
+            Thread.sleep(6000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
+    }
+
     private boolean checkUsername(String username){
         return username.equals("admin");
     }
