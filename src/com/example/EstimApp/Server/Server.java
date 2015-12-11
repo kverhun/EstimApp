@@ -12,7 +12,6 @@ public class Server {
     }
 
     public boolean checkLoginInfo(String username, String password) {
-
         // imitation of long operation
         try {
             Thread.sleep(3000);
@@ -37,6 +36,16 @@ public class Server {
         private final String description;
     }
 
+    public void waitForWorkItem(){
+        // imitation of long operation
+        try {
+            Thread.sleep(4000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
+    }
+
     public WorkItem getWorkItem(){
         return new WorkItem("Work item 1 title", "Work item 1 description");
     }
@@ -46,7 +55,24 @@ public class Server {
     }
 
     public void makeEstimation(int value){
+        // imitation of long operation
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
         lastEstimationValue = value;
+    }
+
+    public void waitEndSession(){
+        // imitation of long operation
+        try {
+            Thread.sleep(6000);
+        }
+        catch (InterruptedException e){
+            Thread.interrupted();
+        }
     }
 
     private boolean checkUsername(String username){

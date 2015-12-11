@@ -2,20 +2,19 @@ package com.example.EstimApp;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.EstimApp.Server.Server;
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Created by Kostiantyn on 27.11.2015.
@@ -35,6 +34,8 @@ public class Fragment3 extends Fragment {
 
         titleTextView.setText(workItem.getTitle());
         descriptionTextView.setText(workItem.getDescription());
+
+        progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEstimMaking);
 
         TableLayout tableLayout = (TableLayout)rootView.findViewById(R.id.tableLayoutEstimButtons);
         fillLayoutWithButtons(tableLayout);
@@ -69,9 +70,13 @@ public class Fragment3 extends Fragment {
             button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    Server server = Server.Instance();
-                    server.makeEstimation(value);
-                    onEstimMade();
+                    (new TaskMakeEstim(progressBar, new Callable<Void>() {
+                        @Override
+                        public Void call() throws Exception {
+                            onEstimMade();
+                            return null;
+                        }
+                    })).execute(value);
                 }
             });
             row.addView(button);
@@ -84,6 +89,38 @@ public class Fragment3 extends Fragment {
         startActivity(intent);
     }
 
+    private class TaskMakeEstim extends AsyncTask<Integer, Void, Void>{
+        public TaskMakeEstim(ProgressBar progressBar, Callable<Void> onPostExecuteFunc){
+            this.progressBar = progressBar;
+            this.onPostExecuteFunc = onPostExecuteFunc;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            progressBar.setVisibility(View.INVISIBLE);
+            try {
+                onPostExecuteFunc.call();
+            } catch (Exception e){
+
+            }
+        }
+
+        @Override
+        protected Void doInBackground(Integer... param){
+            Server.Instance().makeEstimation(param[0]);
+            return null;
+        }
+
+        private ProgressBar progressBar;
+        private Callable<Void> onPostExecuteFunc;
+    }
+
+    private ProgressBar progressBar;
     private final int[] estimationValues = {0, 1, 2, 3, 5, 8, 13, 21};
     }
 
