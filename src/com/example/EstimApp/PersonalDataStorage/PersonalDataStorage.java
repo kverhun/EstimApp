@@ -33,14 +33,15 @@ public class PersonalDataStorage {
         Cursor query_result = db.rawQuery(SELECT_TABLE_ESTIM_HISTORY, null);
         ArrayList<UserItemEstim> userItemEstimArray = new ArrayList<UserItemEstim>();
         query_result.moveToFirst();
-        while(query_result.isAfterLast() == false){
+        while(!query_result.isAfterLast()){
             UserItemEstim userItemEstim = new UserItemEstim(
-                query_result.getString(query_result.getColumnIndex(dbhelper.COLUMN_LOGIN)),
-                query_result.getString(query_result.getColumnIndex(dbhelper.COLUMN_WORK_ITEM_TITLE)),
-                query_result.getInt(query_result.getColumnIndex(dbhelper.COLUMN_ESTIM)));
+                query_result.getString(query_result.getColumnIndex(MySQLiteOpenHelper.COLUMN_LOGIN)),
+                query_result.getString(query_result.getColumnIndex(MySQLiteOpenHelper.COLUMN_WORK_ITEM_TITLE)),
+                query_result.getInt(query_result.getColumnIndex(MySQLiteOpenHelper.COLUMN_ESTIM)));
             userItemEstimArray.add(userItemEstim);
             query_result.moveToNext();
         }
+        query_result.close();
         return userItemEstimArray;
     }
 
@@ -79,7 +80,7 @@ public class PersonalDataStorage {
         }
 
         private static final String DATABASE_NAME = "PersonalData.db";
-        private static final int DATABASE_VERSION = 1; //if you change db structure -- change db version.
+        private static final int DATABASE_VERSION = 2; //if you change db structure or want to clear db -- just change db version.
 
         private static final String DATABASE_CREATE = "create table "
                 + TABLE_ESTIM_HISTORY

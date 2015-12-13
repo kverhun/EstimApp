@@ -39,7 +39,7 @@ public class Fragment4 extends Fragment {
         TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
 
         Server server = Server.Instance();
-        Server.WorkItem workItem = server.getWorkItem();
+        Server.WorkItem workItem = server.getCurrentWorkItem();
 
         titleTextView.setText(workItem.getTitle());
         descriptionTextView.setText(workItem.getDescription());
@@ -60,7 +60,7 @@ public class Fragment4 extends Fragment {
         PersonalDataStorage estimHistory = PersonalDataStorage.getInstance(getActivity());
         UserItemEstim userItemEstim = new UserItemEstim(
                 estimHistory.GetCurrentLogin(),
-                server.getWorkItem().getTitle(),
+                server.getCurrentWorkItem().getTitle(),
                 server.getLastEstimationValue());
         estimHistory.StoreUserItemEstim(userItemEstim);
 

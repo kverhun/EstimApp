@@ -46,8 +46,19 @@ public class Server {
         }
     }
 
-    public WorkItem getWorkItem(){
-        return new WorkItem("Work item 1 title", "Work item 1 description");
+    public WorkItem getCurrentWorkItem(){
+
+        return currentWorkItem;
+    }
+
+    public WorkItem getNextWorkItem(){
+        if (!IsEstimFinished()) {
+            currentWorkItem = new WorkItem("Work item " + processedItemsNumber + " title", "Work item " + processedItemsNumber + " description");
+            processedItemsNumber++;
+        } else {
+            currentWorkItem = null;
+        }
+        return getCurrentWorkItem();
     }
 
     public Integer getLastEstimationValue(){
@@ -75,6 +86,10 @@ public class Server {
         }
     }
 
+    public boolean IsEstimFinished(){
+        return processedItemsNumber == TOTAL_ITEMS_NUMBER;
+    }
+
     private boolean checkUsername(String username){
         return username.equals("admin");
     }
@@ -84,6 +99,9 @@ public class Server {
     }
 
     private Integer lastEstimationValue;
+    private WorkItem currentWorkItem = null;
+    private int processedItemsNumber = 0;
+    private final int TOTAL_ITEMS_NUMBER = 3;
 
     private Server(){}
     private static Server instance;

@@ -23,6 +23,10 @@ public class UserItemEstim {
         return estimation;
     }
 
+    public String toString(){
+        return new String(login + ": " + itemName + " - " + estimation);
+    }
+
     private String login;
     private String itemName;
     private int estimation;

@@ -30,7 +30,12 @@ public class Fragment3 extends Fragment {
         TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
 
         Server server = Server.Instance();
-        Server.WorkItem workItem = server.getWorkItem();
+        if (server.IsEstimFinished()){
+            Intent intent = new Intent(getActivity(), Activity6.class);
+            startActivity(intent);
+            return rootView;
+        }
+        Server.WorkItem workItem = server.getNextWorkItem();
 
         titleTextView.setText(workItem.getTitle());
         descriptionTextView.setText(workItem.getDescription());
