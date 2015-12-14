@@ -28,15 +28,6 @@ public class Fragment1 extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.layout1, container, false);
 
-        final Button button = (Button)rootView.findViewById(R.id.layout1SwitchButton);
-        if (button != null)
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onSuccessLogin();
-            }
-        });
-
         final Button loginButton = (Button)rootView.findViewById(R.id.buttonLogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override

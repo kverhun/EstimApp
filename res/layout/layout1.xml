@@ -10,11 +10,6 @@
             android:text="@string/Authentication"
             android:id="@+id/textView2" android:layout_weight="0.02" android:textSize="@dimen/LayoutHeaderTextSize"
             android:textIsSelectable="true"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switch"
-            android:id="@+id/layout1SwitchButton"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
