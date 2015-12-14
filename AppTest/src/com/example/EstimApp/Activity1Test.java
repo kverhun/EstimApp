@@ -65,6 +65,4 @@ public class Activity1Test extends ActivityInstrumentationTestCase2<Activity1> {
 
     private Activity1 activity;
 
-
-
 }
