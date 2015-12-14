@@ -44,16 +44,6 @@ public class Fragment4 extends Fragment {
         titleTextView.setText(workItem.getTitle());
         descriptionTextView.setText(workItem.getDescription());
 
-        Button button = (Button)rootView.findViewById(R.id.layout4SwitchButton);
-        if (button != null)
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getActivity(), Activity6.class);
-                    startActivity(intent);
-                }
-            });
-
         Button buttonWithEstim = (Button)rootView.findViewById(R.id.buttonEstimMade);
         buttonWithEstim.setText(Server.Instance().getLastEstimationValue().toString());
 
