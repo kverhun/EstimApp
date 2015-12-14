@@ -30,9 +30,10 @@
         </ScrollView>
 
             <TableLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:layout_margin="60dp"
-                    android:id="@+id/tableLayoutEstimButtons">
+                    android:layout_width="261dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableLayoutEstimButtons" android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp">
             </TableLayout>
         <ProgressBar
                 android:layout_width="wrap_content"
