@@ -8,7 +8,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/WaitingHeader"
-            android:id="@+id/textView" android:textSize="@dimen/LayoutHeaderTextSize"/>
+            android:id="@+id/textViewLayout2Title" android:textSize="@dimen/LayoutHeaderTextSize"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="There is no previous work item estimation result."
-                android:id="@+id/textView4" android:layout_gravity="center_horizontal"
+                android:id="@+id/textViewLayout2PreviousEstim" android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/ContentTextSize"/>
         <Space
                 android:layout_width="match_parent"
