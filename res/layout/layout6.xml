@@ -9,20 +9,15 @@
             android:layout_height="wrap_content"
             android:text="@string/FinishLayoutHeaderName"
             android:id="@+id/textView5" android:textSize="@dimen/LayoutHeaderTextSize"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switch"
-            android:id="@+id/layout6SwitchButton"/>
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Here you can see estimation results shared by server."
-            android:id="@+id/textView9" android:layout_weight="0.31" android:textSize="@dimen/ContentTextSize"/>
+            android:text="New Text"
+            android:id="@+id/textViewHistory" android:layout_gravity="center_horizontal" android:layout_weight="0.10"/>
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Escape"
-            android:id="@+id/button12" android:layout_gravity="center_horizontal"
+            android:id="@+id/layout6EscapeButton" android:layout_gravity="center_horizontal"
             android:textSize="@dimen/ContentTextSize"/>
 </LinearLayout>
