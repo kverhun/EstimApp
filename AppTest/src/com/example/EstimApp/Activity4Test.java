@@ -7,7 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.example.EstimApp.PersonalDataStorage.PersonalDataStorage;
+import com.example.EstimApp.PersonalDataStorage.UserItemEstim;
 import com.example.EstimApp.Server.Server;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -54,6 +58,19 @@ public class Activity4Test extends ActivityInstrumentationTestCase2<Activity4> {
         assertNotNull(progressBar);
     }
 
+    public void testShouldLastStoredItemBeTheLastOneInTheReturnedHistory(){
+        PersonalDataStorage storageInstance = PersonalDataStorage.getInstance(getActivity());
+        final String LOGIN = "testAdmin";
+        final String WORK_ITEM_TITLE = "testTitle";
+        final int ESTIM = 6;
+        storageInstance.StoreUserItemEstim(new UserItemEstim(LOGIN, WORK_ITEM_TITLE, ESTIM));
+        ArrayList<UserItemEstim> history = storageInstance.GetStoredUserItemEstims();
+        final UserItemEstim LAST_HISTORY_ITEM = history.get(history.size() - 1);
+
+        assertEquals(LOGIN, LAST_HISTORY_ITEM.GetLogin());
+        assertEquals(WORK_ITEM_TITLE, LAST_HISTORY_ITEM.GetItemName());
+        assertEquals(ESTIM, LAST_HISTORY_ITEM.GetEstim());
+    }
     private Activity4 activity;
 
 }
