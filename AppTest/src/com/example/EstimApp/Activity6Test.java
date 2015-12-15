@@ -3,6 +3,8 @@ package com.example.EstimApp;
 import android.support.v4.app.Fragment;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import static org.junit.Assert.*;
 
@@ -36,7 +38,13 @@ public class Activity6Test extends ActivityInstrumentationTestCase2<Activity6> {
     }
 
     public void testShouldCreateLayoutElements(){
+        TextView textViewTitle = (TextView)activity.findViewById(R.id.textViewLayout6Title);
+        TextView textViewHistory = (TextView)activity.findViewById(R.id.textViewHistory);
+        Button escapeButton = (Button)activity.findViewById(R.id.layout6EscapeButton);
 
+        assertNotNull(textViewTitle);
+        assertNotNull(textViewHistory);
+        assertNotNull(escapeButton);
     }
 
     private Activity6 activity;
