@@ -8,16 +8,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/FinishLayoutHeaderName"
-            android:id="@+id/textView5" android:textSize="@dimen/LayoutHeaderTextSize"/>
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textViewHistory" android:layout_gravity="center_horizontal" android:layout_weight="0.10"/>
+            android:id="@+id/textViewLayout6Title" android:textSize="@dimen/LayoutHeaderTextSize"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView3" android:layout_weight="0.98">
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/textViewHistory" android:layout_gravity="center_horizontal" android:layout_weight="0.10"/>
+    </ScrollView>
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Escape"
-            android:id="@+id/layout6EscapeButton" android:layout_gravity="center_horizontal"
+            android:id="@+id/layout6EscapeButton" android:layout_gravity="bottom|center_horizontal"
             android:textSize="@dimen/ContentTextSize"/>
 </LinearLayout>

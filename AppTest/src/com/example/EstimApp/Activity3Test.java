@@ -5,6 +5,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import static org.junit.Assert.*;
 
@@ -38,7 +40,13 @@ public class Activity3Test extends ActivityInstrumentationTestCase2<Activity3> {
     }
 
     public void testShouldCreateLayoutElements(){
+        TextView workitemTitle = (TextView)activity.findViewById(R.id.textViewLayout3WorkItemTitle);
+        TextView workItemDescription = (TextView)activity.findViewById(R.id.textViewLayout3WorkItemDesciption);
+        ProgressBar progressBar = (ProgressBar)activity.findViewById(R.id.progressBarEstimMaking);
 
+        assertNotNull(workitemTitle);
+        assertNotNull(workItemDescription);
+        assertNotNull(progressBar);
     }
 
     private Activity3 activity;

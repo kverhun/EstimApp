@@ -14,6 +14,11 @@ When whole set of tasks estimation done, it results in the objective task estima
   5. Watch estimation session summary
   6. Log out
 
+## UI forms
+You can find
+[here](https://github.com/kverhun/EstimApp/tree/Unit-tests-for-UI/docs/screenshots)
+list of UI forms.
+
 ## UI graph
 You can find 
 [here](https://github.com/kverhun/EstimApp/blob/master/docs/UI_graph.pdf) 

@@ -26,8 +26,8 @@ public class Fragment3 extends Fragment {
 
         View rootView = inflater.inflate(R.layout.layout3, container, false);
 
-        TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
-        TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
+        TextView titleTextView = (TextView)rootView.findViewById(R.id.textViewLayout3WorkItemTitle);
+        TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textViewLayout3WorkItemDesciption);
 
         Server server = Server.Instance();
         if (server.IsEstimFinished()){
