@@ -5,6 +5,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.example.EstimApp.Server.Server;
 
 import static org.junit.Assert.*;
@@ -21,7 +23,8 @@ public class Activity4Test extends ActivityInstrumentationTestCase2<Activity4> {
 
     @Override
     public void setUp() throws Exception {
-        //Server.Instance().makeEstimation(4);
+        Server.Instance().getNextWorkItem();
+        Server.Instance().makeEstimation(4);
         activity = this.getActivity();
     }
 
@@ -40,7 +43,15 @@ public class Activity4Test extends ActivityInstrumentationTestCase2<Activity4> {
     }
 
     public void testShouldCreateLayoutElements(){
+        TextView textViewTitle = (TextView)activity.findViewById(R.id.textViewLayout4WorkItemTitle);
+        TextView textViewDescription = (TextView)activity.findViewById(R.id.textViewLayout4WorkItemDesciption);
+        TextView textViewWaitingText = (TextView)activity.findViewById(R.id.textViewLayout4WaitingText);
+        ProgressBar progressBar = (ProgressBar)activity.findViewById(R.id.progressBarWaitEndSession);
 
+        assertNotNull(textViewTitle);
+        assertNotNull(textViewDescription);
+        assertNotNull(textViewWaitingText);
+        assertNotNull(progressBar);
     }
 
     private Activity4 activity;

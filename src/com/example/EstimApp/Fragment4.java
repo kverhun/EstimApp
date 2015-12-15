@@ -35,8 +35,8 @@ public class Fragment4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.layout4, container, false);
 
-        TextView titleTextView = (TextView)rootView.findViewById(R.id.textWorkItemTitle);
-        TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textWorkItemDesciption);
+        TextView titleTextView = (TextView)rootView.findViewById(R.id.textViewLayout4WorkItemTitle);
+        TextView descriptionTextView = (TextView)rootView.findViewById(R.id.textViewLayout4WorkItemDesciption);
 
         Server server = Server.Instance();
         Server.WorkItem workItem = server.getCurrentWorkItem();
