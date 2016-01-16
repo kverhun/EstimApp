@@ -27,10 +27,10 @@ UI form transition graph.
 ## UI graph
 You can find 
 [here](https://github.com/kverhun/EstimApp/tree/master/docs/profiling) 
-profiling results. 
-[Note](https://raw.githubusercontent.com/kverhun/EstimApp/master/docs/profiling/RAM_usage.png), our application uses up to 7 MB RAM.
-You may
-[ensure](https://raw.githubusercontent.com/kverhun/EstimApp/master/docs/profiling/asynchronous_tasks.jpg), that the application is developed using asynchronous tasks.
+profiling result.  
+[Note](https://raw.githubusercontent.com/kverhun/EstimApp/master/docs/profiling/RAM_usage.png), our application uses up to 7 MB RAM.  
+Taking to account that server access operation may take some time, we have developed the application using 
+[asynchronous tasks](https://raw.githubusercontent.com/kverhun/EstimApp/master/docs/profiling/asynchronous_tasks.jpg).
 
 ## Project contributors:
   - Kostiantyn Verhun
