@@ -24,7 +24,7 @@ You can find
 [here](https://github.com/kverhun/EstimApp/blob/master/docs/UI_graph.pdf) 
 UI form transition graph.
 
-## UI graph
+## Profiling report
 You can find 
 [here](https://github.com/kverhun/EstimApp/tree/master/docs/profiling) 
 profiling result.  
